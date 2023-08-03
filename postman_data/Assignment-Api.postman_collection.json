@@ -1,0 +1,852 @@
+{
+	"info": {
+		"_postman_id": "1a18733f-8e56-4877-9bd2-c737d37622b8",
+		"name": "Assignment-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11583515"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "CREATE_USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Gaurav Singh\",\n    \"username\":\"frenzycoder\",\n    \"email\":\"gaurav4149singh@gmail.com\",\n    \"password\":\"G@123aurav\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CREATE_USER",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Gaurav Kumar\",\n    \"username\":\"frenzycoder\",\n    \"email\":\"gaurav4149singh@gmail.com\",\n    \"password\":\"G@123aurav\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-ASMfoApUJ3y9JnZZqDmv+/C5hog\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 05:13:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user created\"\n}"
+						}
+					]
+				},
+				{
+					"name": "LOGIN_USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();",
+									"pm.environment.set(\"token\", `${res.data.token}`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"frenzycoder\",\n    \"password\":\"G@123aurav\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "LOGIN_USER",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\":\"frenzycoder\",\n    \"password\":\"G@123aurav\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "426"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1aa-fMwvQ5elUTdmHWCdIbadFPtYhBQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 05:14:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user logged in\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyYTU4ZjQ4N2Y3ODcyMmI2OWJiNGYiLCJ1c2VybmFtZSI6ImZyZW56eWNvZGVyIiwiZW1haWwiOiJnYXVyYXY0MTQ5c2luZ2hAZ21haWwuY29tIiwiaWF0IjoxNjc4OTQzNjg3LCJleHAiOjE2ODE1MzU2ODd9.WPSd6NRkzeL__wRj6QyZsJIV9JhDegNGEhxTU0D24vo\",\n        \"user\": {\n            \"_id\": \"6412a58f487f78722b69bb4f\",\n            \"username\": \"frenzycoder\",\n            \"email\": \"gaurav4149singh@gmail.com\",\n            \"name\": \"Gaurav Kumar\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/user/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "LOGOUT",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/user/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-2b6lwqVP1ylE59P3zEYcjGOYOHU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 05:16:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user logged out\"\n}"
+						}
+					]
+				},
+				{
+					"name": "VALIDATE_TOKEN",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/user/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "VALIDATE_TOKEN",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/user/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "550"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"226-ghQnQ0JlpDn1P8/ETBbmMmjnLtY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 05:15:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"_id\": \"6412a58f487f78722b69bb4f\",\n        \"name\": \"Gaurav Kumar\",\n        \"username\": \"frenzycoder\",\n        \"email\": \"gaurav4149singh@gmail.com\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDEyYTU4ZjQ4N2Y3ODcyMmI2OWJiNGYiLCJ1c2VybmFtZSI6ImZyZW56eWNvZGVyIiwiZW1haWwiOiJnYXVyYXY0MTQ5c2luZ2hAZ21haWwuY29tIiwiaWF0IjoxNjc4OTQzNjg3LCJleHAiOjE2ODE1MzU2ODd9.WPSd6NRkzeL__wRj6QyZsJIV9JhDegNGEhxTU0D24vo\",\n        \"password\": \"$2a$10$JuISy4qMkrrPV2dUm3gdCeVD0msff2g9kAWqvvOjTOMjZPndvZsl6\",\n        \"createdAt\": \"2023-03-16T05:13:51.451Z\",\n        \"updatedAt\": \"2023-03-16T05:14:47.504Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "CREATE_VEHICLE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Audi\",\n    \"model\":\"NRG\",\n    \"color\":\"White\",\n    \"price\":7800000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vehicle/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vehicle",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CREATE_VEHICLE",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"TATA Tiago\",\n    \"model\":\"NRG\",\n    \"color\":\"Forest Green\",\n    \"price\":750000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "268"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10c-Dh5uU6qYmOaeHkBOOcm+z5lUvWw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 05:20:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Vehicle created\",\n    \"vehicle\": {\n        \"user\": \"6412a58f487f78722b69bb4f\",\n        \"color\": \"Forest Green\",\n        \"model\": \"NRG\",\n        \"name\": \"TATA Tiago\",\n        \"price\": \"750000\",\n        \"_id\": \"6412a712487f78722b69bb58\",\n        \"createdAt\": \"2023-03-16T05:20:18.081Z\",\n        \"updatedAt\": \"2023-03-16T05:20:18.081Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GET_VEHICLE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/vehicle?limit=3&page=0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vehicle"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "search",
+									"value": "Tiago",
+									"disabled": true
+								},
+								{
+									"key": "model",
+									"value": "NRG",
+									"disabled": true
+								},
+								{
+									"key": "color",
+									"value": "White",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "2023-03-14",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2023-03-15",
+									"disabled": true
+								},
+								{
+									"key": "sortvalue",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sortKey",
+									"value": "price",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET_VEHICLE",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/vehicle?limit=4&page=0&sortvalue=-1&sortKey=price",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "4"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "search",
+											"value": "white",
+											"disabled": true
+										},
+										{
+											"key": "model",
+											"value": "NRG",
+											"disabled": true
+										},
+										{
+											"key": "color",
+											"value": "White",
+											"disabled": true
+										},
+										{
+											"key": "startDate",
+											"value": "2023-03-14",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "2023-03-17",
+											"disabled": true
+										},
+										{
+											"key": "sortvalue",
+											"value": "-1"
+										},
+										{
+											"key": "sortKey",
+											"value": "price"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "914"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"392-+OT57JEFNaI207ur1eOsZo24gcQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 05:26:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 4,\n    \"vehicle\": [\n        {\n            \"_id\": \"6412a72b487f78722b69bb5a\",\n            \"user\": \"6412a58f487f78722b69bb4f\",\n            \"color\": \"White\",\n            \"model\": \"NRG\",\n            \"name\": \"TATA Tigor\",\n            \"price\": \"800000\",\n            \"createdAt\": \"2023-03-16T05:20:43.763Z\",\n            \"updatedAt\": \"2023-03-16T05:20:43.763Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6412a746487f78722b69bb5e\",\n            \"user\": \"6412a58f487f78722b69bb4f\",\n            \"color\": \"White\",\n            \"model\": \"NRG\",\n            \"name\": \"Audi\",\n            \"price\": \"7800000\",\n            \"createdAt\": \"2023-03-16T05:21:10.262Z\",\n            \"updatedAt\": \"2023-03-16T05:21:10.262Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6412a712487f78722b69bb58\",\n            \"user\": \"6412a58f487f78722b69bb4f\",\n            \"color\": \"Forest Green\",\n            \"model\": \"NRG\",\n            \"name\": \"TATA Tiago\",\n            \"price\": \"750000\",\n            \"createdAt\": \"2023-03-16T05:20:18.081Z\",\n            \"updatedAt\": \"2023-03-16T05:20:18.081Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6412a737487f78722b69bb5c\",\n            \"user\": \"6412a58f487f78722b69bb4f\",\n            \"color\": \"White\",\n            \"model\": \"NRG\",\n            \"name\": \"TATA Nexon\",\n            \"price\": \"1100000\",\n            \"createdAt\": \"2023-03-16T05:20:55.814Z\",\n            \"updatedAt\": \"2023-03-16T05:20:55.814Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE_VEHICLE",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Some Car\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/vehicle/?vid=64cb1d55b02ca68a1bd7acba",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vehicle",
+								""
+							],
+							"query": [
+								{
+									"key": "vid",
+									"value": "64cb1d55b02ca68a1bd7acba"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UPDATE_VEHICLE",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Tiago\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/?vid=6412a72b487f78722b69bb5a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										""
+									],
+									"query": [
+										{
+											"key": "vid",
+											"value": "6412a72b487f78722b69bb5a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "256"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"100-3wW8aX0rpIcgU/YESosv4TvNn0I\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 05:27:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"vehicle updated\",\n    \"vehicle\": {\n        \"_id\": \"6412a72b487f78722b69bb5a\",\n        \"user\": \"6412a58f487f78722b69bb4f\",\n        \"color\": \"White\",\n        \"model\": \"NRG\",\n        \"name\": \"Tiago\",\n        \"price\": \"800000\",\n        \"createdAt\": \"2023-03-16T05:20:43.763Z\",\n        \"updatedAt\": \"2023-03-16T05:27:27.314Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE_VEHICLE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/vehicle/?vid=6412b273a9dcf152fff29b32",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vehicle",
+								""
+							],
+							"query": [
+								{
+									"key": "vid",
+									"value": "6412b273a9dcf152fff29b32"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE_VEHICLE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/vehicle/?vid=6412a72b487f78722b69bb5a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										""
+									],
+									"query": [
+										{
+											"key": "vid",
+											"value": "6412a72b487f78722b69bb5a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d-hqiqx5vFdMsqoAIdpv62kLtCDic\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Mar 2023 05:28:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Vehicle deleted\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

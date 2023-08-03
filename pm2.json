@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "assignment:7001",
+            "script": "npm",
+            "args" : "start"
+        }
+    ]
+}
