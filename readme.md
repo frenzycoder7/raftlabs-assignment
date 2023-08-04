@@ -4,8 +4,6 @@ This project requires [Node.js](https://nodejs.org/) v10+ to run.
 
 > Note - `Docker should be installed on your system`
 
-> Follow video demo 
-[![Wach the video](./screen.png)](https://vimeo.com/851377965?share=copy)
 ## Features
 
 - CHAT ROOMS
